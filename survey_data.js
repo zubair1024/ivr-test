@@ -5,11 +5,11 @@ module.exports = [
         type: 'number'
     },
     {
-        text: 'Have you ever jump-kicked a lemur?',
-        type: 'boolean'
+        text: 'Who is your favorite Teenage Mutant Ninja Turtle and why?',
+        type: 'text'
     },
     {
-        text: 'Who is your favorite Teenage Mutant Ninja Turtle and why?',
+        text: 'This is madness or is this sparta?',
         type: 'text'
     }
 ];

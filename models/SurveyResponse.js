@@ -46,7 +46,7 @@ SurveyResponseSchema.statics.advanceSurvey = function(args, cb) {
         }
 
         // If we have no input, ask the current question again
-        if (!input) return reask();
+        // if (!input) return reask();
 
         // Otherwise use the input to answer the current question
         var questionResponse = {};
@@ -63,7 +63,7 @@ SurveyResponseSchema.statics.advanceSurvey = function(args, cb) {
             } else {
                 questionResponse.answer = num;
             }
-        } else if (input.indexOf('http') === 0) {
+        } else if (input && input.indexOf('http') === 0) {
             // input is a recording URL
             questionResponse.recordingUrl = input;
         } else {
@@ -73,7 +73,8 @@ SurveyResponseSchema.statics.advanceSurvey = function(args, cb) {
 
         // Save type from question
         questionResponse.type = currentQuestion.type;
-        surveyResponse.responses.push(questionResponse);
+        // surveyResponse.responses.push(questionResponse);
+        surveyResponse.responses = surveyResponse.responses.concat([questionResponse]);
 
         // If new responses length is the length of survey, mark as done
         if (surveyResponse.responses.length === surveyData.length) {
